@@ -20,6 +20,10 @@
 5. The result will be a .db in the same directory called "artin.db" with columns
 <img width="600" alt="Screen Shot 2023-09-01 at 8 14 55 PM" src="https://github.com/YouTelllMe/Artin-s-Conjecture-Data-Collection/assets/80024712/1735b847-14d0-4608-b16a-34eab7c03491">
 
+TABLE NAME: corresponds to an A value<br />
+p: prime <br />
+multi_order: order a mod p<br />
+prim_root: boolean field for whether a is a primitive root mod p<br />
 Omega-Omega: Ω - Ω<br />
 o_o: ω - ω<br />
 o_: ω(/)<br />
