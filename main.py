@@ -77,7 +77,6 @@ if __name__ == "__main__":
     P = 0
     RANGE = 800
     PRIMES = 10000
-
     start_time_total = time.time()
 
     # connect 
@@ -94,32 +93,23 @@ if __name__ == "__main__":
 
         for prime_index in range(P, P+PRIMES):
             prime = int(primes.unrank(prime_index))
+            order = order_a_mod_p(a, prime)
 
-            if a < 0:
-                c.execute(f"SELECT * FROM _neg_{-a} WHERE p = :p",
-                      {"p": prime})
-            else:
-                c.execute(f"SELECT * FROM _{a} WHERE p = :p",
-                        {"p": prime})
+            prim_root_mod_p = 0
+            if order == (prime - 1):
+                prim_root_mod_p = 1
             
-            if c.fetchone() is None:
-                order = order_a_mod_p(a, prime)
+            if order != 0:
+                # calculate the exponents 
+                omega_orda, Omega_orda = factorize(order)
+                omega_p_1, Omega_p_1 = factorize(prime-1)
+                o_, O_ = factorize(int((prime-1)/order))
+                Omega_Omega = Omega_p_1 - Omega_orda
+                o_o = omega_p_1 - omega_orda
 
-                prim_root_mod_p = 0
-                if order == (prime - 1):
-                    prim_root_mod_p = 1
-                
-                if order != 0:
-                    # calculate the exponents 
-                    omega_orda, Omega_orda = factorize(order)
-                    omega_p_1, Omega_p_1 = factorize(prime-1)
-                    o_, O_ = factorize(int((prime-1)/order))
-                    Omega_Omega = Omega_p_1 - Omega_orda
-                    o_o = omega_p_1 - omega_orda
-
-                    insert_entry(c, a, prime, order, prim_root_mod_p, Omega_Omega, o_o, o_)
-                else:
-                    insert_entry(c, a, prime, order, 0, -1, -1, -1)
+                insert_entry(c, a, prime, order, prim_root_mod_p, Omega_Omega, o_o, o_)
+            else:
+                insert_entry(c, a, prime, order, 0, -1, -1, -1)
 
         print(f"a = {a}", time.time() - start_time, "s")
         # commit 
