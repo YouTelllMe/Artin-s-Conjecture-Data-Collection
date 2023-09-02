@@ -76,7 +76,7 @@ if __name__ == "__main__":
     A = -400
     P = 0
     RANGE = 800
-    PRIMES = 10000
+    PRIMES = 1000
     start_time_total = time.time()
 
     # connect 

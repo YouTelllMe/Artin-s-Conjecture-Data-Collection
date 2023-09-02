@@ -16,5 +16,6 @@
 
 ## Some Time References
 
+1. 1000 primes takes a little less than 0.05 for each a
 1. 10000 primes takes a little less than 0.5 seconds for each a
-2. 100000 primes takes a little less than 20 seconds for each a
+1. 100000 primes takes a little less than 20 seconds for each a
