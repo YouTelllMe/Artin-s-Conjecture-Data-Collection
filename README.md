@@ -11,7 +11,7 @@
    - A: int = starting A value.
    - P: int+ or 0 = starting prime index. EX: P = 0 would make the first prime 2.
    - RANGE: int+ = number of As to iterate through from A. EX: A = 0, RANGE = 10 would go through a in {0, 1, 2, ..., 9}.
-   - PRIMES: int+ = number of primes to iterate through from P. EX: P = 0, PRIMES = 2 would go through {2, 3}.
+   - PRIMES: int+ = number of primes to iterate through from P. EX: P = 0, PRIMES = 5 would go through {2, 3, 5, 7, 11}.
      Note that to save time, the program does not check whether data already exists or not. And any new computation is
      inserted directly to the end of the database (not sorted).
 <img width="600" alt="Screen Shot 2023-09-01 at 8 13 21 PM" src="https://github.com/YouTelllMe/Artin-s-Conjecture-Data-Collection/assets/80024712/a6406c76-aa6e-4716-9a91-02e91e09c6bf">
